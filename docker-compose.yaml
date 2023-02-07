@@ -16,9 +16,11 @@ services:
       - "4000:4000"
       - "3500:3500"
   collector:
-    image: ghcr.io/esir2-projet-keolis/collector:main
+    image: ghcr.io/esir2-projet-keolis/collector:ProdDevAndFixBug
     depends_on:
       - rabbitmq
+    environment:
+      - PROD=True
   rabbitmq:
     image: rabbitmq:3.11.3-management-alpine
   processingunit:
