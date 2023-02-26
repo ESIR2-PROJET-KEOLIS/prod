@@ -14,6 +14,9 @@ services:
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
       REDIS_HOST: cache
       API_PROCESSUNIT: processingunit:8090
+    ports:
+      - "4000:4000"
+      - "3500:3500"
   collector:
     image: ghcr.io/esir2-projet-keolis/collector:main
     depends_on:
@@ -23,16 +26,39 @@ services:
   rabbitmq:
     image: rabbitmq:3.11.3-management-alpine
     ports:
+      - "5672:5672"
       - "15672:15672"
   processingunit:
     image: ghcr.io/esir2-projet-keolis/processing-storage-unit:master
     depends_on:
       - rabbitmq
       - db
+    ports:
+      - "8090:8090"
     environment:
       DB_HOST: db
+      DB_PORT: 3306
   db:
     image: ghcr.io/esir2-projet-keolis/mysql-db:main
+    ports:
+      - "6033:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - "8081:80"
   cache:
     image: redis:alpine3.17
     restart: always
+    ports:
+      - '6379:6379'
+# REPLACE image : xxxxx
+# BY build:
+#   context: path/to/repo
+#   dockerfile: path/to/repo/dockerfile
