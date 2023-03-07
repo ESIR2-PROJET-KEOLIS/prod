@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   frontend:
-    image: ghcr.io/esir2-projet-keolis/frontend:sprint1
+    image: ghcr.io/esir2-projet-keolis/frontend:master
     depends_on:
       - backend
     ports:
