@@ -58,6 +58,11 @@ services:
     restart: always
     ports:
       - '6379:6379'
+  API_IA:
+    image: ghcr.io/esir2-projet-keolis/ia_api:main
+    ports:
+      - "5001:5001"
+
 # REPLACE image : xxxxx
 # BY build:
 #   context: path/to/repo

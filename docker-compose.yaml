@@ -37,3 +37,8 @@ services:
   cache:
     image: redis:alpine3.17
     restart: always
+
+  API_IA:
+    image: ghcr.io/esir2-projet-keolis/ia_api:main
+    ports:
+      - "5001:5001"
