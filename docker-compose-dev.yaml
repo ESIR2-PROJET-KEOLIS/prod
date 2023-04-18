@@ -13,7 +13,7 @@ services:
     environment:
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
       REDIS_HOST: cache
-      API_PROCESSUNIT: processingunit:8090
+      API_PROCESSUNIT: http://processingunit:8090
     ports:
       - "4000:4000"
       - "3500:3500"
