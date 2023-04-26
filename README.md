@@ -9,4 +9,13 @@ Every time the main branch of a module is updated, the docker image is rebuilt a
 
 1. Clone the repository
 2. Run `docker-compose up` to start the application
-3. Connect to the application on `localhost:3000`
+3. Connect to the application on `http://localhost/`
+
+## How to host
+
+On the host machine :
+
+1. Clone the repository
+2. Run `docker-compose up` to start the application
+3. Open host machine's port 80 to the internet
+4. Connect to the application on `http://<host-ip>/`
