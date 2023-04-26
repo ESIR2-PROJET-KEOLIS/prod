@@ -5,7 +5,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "3000:3000"
+      - "80:80"
   backend:
     image: ghcr.io/esir2-projet-keolis/backend:main
     depends_on:
@@ -52,7 +52,7 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - "8081:80"
+      - "8081:8081"
   cache:
     image: redis:alpine3.17
     restart: always
