@@ -38,6 +38,8 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
+      API_IA_HOST: API_IA
+      API_IA_PORT: 5001
   db:
     image: ghcr.io/esir2-projet-keolis/mysql-db:main
     ports:
@@ -62,9 +64,6 @@ services:
     image: ghcr.io/esir2-projet-keolis/ia_api:main
     ports:
       - "5001:5001"
-    environment:
-      API_IA_HOST: API_IA
-      API_IA_PORT: 5001
 
 # REPLACE image : xxxxx
 # BY build:
