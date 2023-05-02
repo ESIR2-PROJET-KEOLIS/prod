@@ -33,6 +33,8 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
+      API_IA_HOST: API_IA
+      API_IA_PORT: 5001
   db:
     image: ghcr.io/esir2-projet-keolis/mysql-db:main
   cache:
